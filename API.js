@@ -67,18 +67,20 @@ api.get("/getposts", (req,res) =>{
 
 api.get("/getposts/:id", (req,res) =>{
     let sql = 'SELECT * FROM posts WHERE ID =' + req.params.id;
-    db.query(sql, post, (err, result) => {
+    db.query(sql,(err, result) => {
         if (err) throw err;
         console.log(result);
         res.send(result);
     });
 //delet a post
-api.get("/getposts/:id", (req,res) =>{
-    let sql = 'SELECT * FROM posts WHERE ID =' + req.params.id;
+api.get("/deletposts/:id", (req,res) =>{
+    let sql = 'DELET FROM posts WHERE ID =' + req.params.id;
     db.query(sql, post, (err, result) => {
         if (err) throw err;
         console.log(result);
         res.send(result);
+    });
+
 api.listen(5000, function(err){
    if (err)
        console.log(err)
